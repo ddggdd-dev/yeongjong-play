@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="ko"><head><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="demo">
+<title>조병수 어린이집(가칭) · 어린이집 단체 체험 놀이터 · 영종도</title>
+<meta name="description" content="영종도 어린이집 단체 체험 놀이터. 놀이 공간, 단체 이용 안내, 예약 문의.">
+<meta property="og:title" content="조병수 어린이집(가칭) · 어린이집 단체 체험 놀이터">
+<meta property="og:description" content="놀면서 배우는 하루. 영종도 어린이집 단체 체험 놀이터.">
+<meta property="og:image" content="https://ddggdd-dev.github.io/yeongjong-play/v3/img/ref-hero2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+/* 뼈대: 키즈플라자 오사카 첫 페이지 — 움직이는 사진 + 한 줄 띠 + 큰 바로가기 타일 + 알림. 긴 글은 모두 메뉴 안쪽 */
+:root{
+  --sea:#1D4E89; --coral:#B93C26; --sun:#FFD45C; --sun-l:#FFF3C9; --mint:#CDEFE7;
+  --cream:#FFFBF2; --ink:#1F2733; --sub:#5A6472; --line:#E7E1D6; --white:#fff;
+  --r:22px; --w:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;word-break:keep-all;font-size:16px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Gowun Dodum","Noto Sans KR",sans-serif;font-weight:400;line-height:1.35}
+.demo-note{background:#2B2B2B;color:#EDEDED;font-size:13px;text-align:center;padding:7px 16px}
+.blank{text-decoration:underline dotted rgba(90,100,114,.45);text-underline-offset:4px}
+body.ph .blank{background:rgba(255,153,0,.14);outline:1.5px dashed #F08C00;outline-offset:2px;border-radius:4px;color:#8A4B00}
+.ph-note{display:none}
+body.ph .ph-note{display:block;background:rgba(255,153,0,.14);outline:1.5px dashed #F08C00;border-radius:6px;color:#8A4B00;padding:6px 10px;font-size:14px;margin-top:8px}
+.ref-tag{position:absolute;left:12px;bottom:12px;z-index:2;background:rgba(0,0,0,.5);color:#fff;font-size:13px;padding:2px 8px;border-radius:6px}
+
+/* 머리 */
+header{background:var(--white);border-bottom:3px solid var(--sea);position:sticky;top:0;z-index:20}
+.top{display:flex;align-items:center;gap:16px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:48px}
+.logo i{width:34px;height:34px;border-radius:50%;background:conic-gradient(var(--coral) 0 33%,var(--sun) 0 66%,var(--sea) 0);flex:none}
+.logo b{font-family:"Gowun Dodum",sans-serif;font-weight:400;font-size:21px;color:var(--sea)}
+.menu-btn{margin-left:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:64px;height:64px;background:var(--sun);border:0;color:var(--ink);font-size:13px;font-weight:700}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--ink);box-shadow:0 6px 0 var(--ink),0 -6px 0 var(--ink);margin:6px 0 8px}
+
+/* 첫 화면 */
+.hero{padding:18px 0 0}
+.hero-box{position:relative;border-radius:var(--r) var(--r) 0 0;overflow:hidden;background:#ddd}
+.slides{position:relative;width:100%;aspect-ratio:16/7;max-width:100%}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.slide.on{opacity:1;animation:drift 6.5s linear forwards}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.08)}}
+.dots{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);display:flex;z-index:2}
+.dots button{width:40px;height:40px;border:0;background:transparent;display:grid;place-items:center}
+.dots button::before{content:"";width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.dots button[aria-current="true"]::before{background:#fff;width:22px;border-radius:5px}
+.pause{position:absolute;left:12px;top:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.4);color:#fff;font-size:13px}
+.group-btn{position:absolute;right:4%;bottom:12%;z-index:2;width:140px;height:140px;border-radius:50%;background:var(--coral);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;text-align:center;font-weight:700;font-size:18px;line-height:1.3;border:5px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.band{background:var(--sea);color:#fff;border-radius:0 0 var(--r) var(--r);padding:22px 28px;text-align:center}
+.band h1{font-size:clamp(1.4rem,2.6vw,2.1rem)}
+.band br.m{display:none}
+@media (prefers-reduced-motion:reduce){.slide{transition:none}.slide.on{animation:none}}
+
+/* 재미·배움·안전 */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:56px 0 0}
+.pillar{position:relative;border-radius:var(--r);overflow:hidden;text-decoration:none;color:#fff;display:block;background:#ccc}
+.pillar img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s}
+.pillar:nth-child(3) img{object-position:35% 50%}
+.pillar:hover img{transform:scale(1.04)}
+.pillar .cap{position:absolute;left:0;right:0;bottom:0;padding:56px 20px 22px;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.pillar h2{font-size:2rem}
+.pillar p{font-size:15px;opacity:.95}
+.pillar .ref-tag{top:12px;bottom:auto}
+.pillar:nth-child(1){border-radius:var(--r) var(--r) var(--r) 60px}
+.pillar:nth-child(3){border-radius:var(--r) var(--r) 60px var(--r)}
+
+/* 바로가기 타일 */
+.tiles-sec{background:var(--mint);margin-top:56px;padding:44px 0;position:relative;overflow:hidden}
+.tiles-sec::before,.tiles-sec::after{content:"";position:absolute;border-radius:50%;opacity:.55}
+.tiles-sec::before{width:180px;height:180px;background:var(--sun);left:-60px;top:-70px}
+.tiles-sec::after{width:120px;height:120px;background:#F6B3A5;right:-30px;bottom:-40px}
+.tiles{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{background:var(--white);border:2px solid var(--sea);border-radius:18px;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-decoration:none;color:var(--sea);font-weight:500;font-size:16px;transition:transform .2s}
+.tile:hover{transform:translateY(-3px)}
+.tile svg{width:44px;height:44px;stroke:var(--sea);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* 알림 */
+.news{padding-block:44px 56px}
+.news h2{font-size:1.4rem;color:var(--sea);margin-bottom:10px}
+.news ul{list-style:none;background:var(--white);border-radius:16px;border:1px solid var(--line)}
+.news li{display:flex;gap:14px;padding:14px 18px;font-size:15px;border-top:1px solid var(--line)}
+.news li:first-child{border-top:0}
+.news time{color:var(--sub);white-space:nowrap;font-size:14px}
+
+footer{background:#14202E;color:#C9D2DD;font-size:14px;padding:36px 0 110px}
+footer b{color:#fff}
+.ph-toggle{margin-top:14px;background:transparent;border:1px solid #5B6B7E;color:#C9D2DD;border-radius:999px;padding:8px 14px;min-height:44px}
+
+/* 메뉴·안쪽 화면 (글이 필요한 것은 여기서) */
+.sheet{position:fixed;inset:0;z-index:50;background:var(--cream);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sheet[hidden]{display:none}
+.sheet-head{position:sticky;top:0;background:var(--white);border-bottom:3px solid var(--sea);display:flex;align-items:center;min-height:64px;padding:0 0 0 20px;z-index:2}
+.sheet-head h2{font-size:1.3rem;color:var(--sea)}
+.close{margin-left:auto;width:64px;height:64px;border:0;background:var(--sun);font-size:26px;line-height:1}
+.sheet-body{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+.menu-list{list-style:none;display:grid;gap:10px}
+.menu-list a{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;font-size:17px;font-weight:500;min-height:56px}
+.menu-list a::after{content:"›";color:var(--coral);font-size:24px}
+.sheet h3{font-size:1.15rem;color:var(--sea);margin:26px 0 10px}
+.sheet h3:first-child{margin-top:0}
+.table{background:var(--white);border-radius:16px;border:1px solid var(--line);overflow:hidden}
+.row{display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row dt{background:#F7F2E9;padding:13px 16px;font-weight:500;font-size:15px}
+.row dd{padding:13px 16px;font-size:15px}
+.row dd a{display:inline-block;min-height:44px;line-height:44px}
+.spaces{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.space{position:relative;border-radius:16px;overflow:hidden;background:var(--white);border:1px solid var(--line)}
+.space img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.space p{padding:10px 14px;font-size:15px}
+details{background:var(--white);border:1px solid var(--line);border-radius:14px;margin-bottom:8px}
+summary{cursor:pointer;padding:15px 18px;font-weight:500;list-style:none;min-height:44px}
+summary::after{content:"+";float:right;color:var(--coral);font-weight:700}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 15px;color:var(--sub)}
+.form{display:grid;gap:12px;background:var(--white);border-radius:16px;padding:20px;border:1px solid var(--line)}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:500}
+.form input,.form select,.form textarea{font:inherit;font-weight:400;border:1px solid #CFC7B8;border-radius:10px;padding:11px 12px;min-height:46px;background:#fff}
+.out{background:#F7F2E9;border-radius:12px;padding:14px;white-space:pre-wrap;font-size:15px;min-height:80px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px;border:0}
+.btn-main{background:var(--coral);color:#fff}
+.btn-sub{border:1.5px solid var(--sea);color:var(--sea);background:transparent}
+.copied{font-size:14px;color:var(--sea)}
+
+/* 하단 전화 바 */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(20,32,46,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .25s}
+.callbar.on{transform:none}
+.callbar a.tel{color:#FFC2B4;font-weight:700;font-size:17px;white-space:nowrap;text-decoration:none;padding:10px 0}
+
+@media (max-width:900px){
+  .pillars{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .pillar h2{font-size:1.4rem}
+  .pillar p{display:none}
+  .tiles{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .demo-note{padding:6px 12px}
+  .top{min-height:56px}
+  .logo b{font-size:18px}
+  .logo i{width:28px;height:28px}
+  .menu-btn{width:56px;height:56px}
+  .hero{padding-top:10px}
+  .hero .wrap{padding:0 12px}
+  .hero-box{border-radius:16px 16px 0 0}
+  .slides{aspect-ratio:4/3}
+  .group-btn{width:84px;height:84px;font-size:13px;right:10px;bottom:12px;border-width:3px}
+  .band{padding:14px 16px;border-radius:0 0 16px 16px}
+  .band h1{font-size:1.25rem}
+  .band br.m{display:inline}
+  .pillars{padding-top:32px;gap:8px}
+  .pillar img{aspect-ratio:3/4}
+  .pillar .cap{padding:40px 10px 12px;text-align:center}
+  .pillar h2{font-size:1.2rem}
+  .pillar .ref-tag{font-size:13px;left:6px;top:6px;padding:1px 5px}
+  .pillar:nth-child(1){border-radius:16px 16px 16px 36px}
+  .pillar:nth-child(2){border-radius:16px}
+  .pillar:nth-child(3){border-radius:16px 16px 36px 16px}
+  .tiles-sec{margin-top:32px;padding:28px 0}
+  .tile{min-height:116px;font-size:15px}
+  .tile svg{width:38px;height:38px}
+  .news{padding-block:32px 44px}
+  .row{grid-template-columns:92px 1fr}
+  .spaces{grid-template-columns:1fr}
+  .callbar>span{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-note">조병수 어린이집(가칭) 사장님께 드리는 제안용 예시입니다. 정식 홈페이지가 아닙니다.</div>
+
+<header>
+  <div class="wrap top">
+    <a class="logo" href="#top"><i aria-hidden="true"></i><b class="blank" title="실제 상호 확인 필요">조병수 어린이집</b></a>
+    <button class="menu-btn" type="button" data-open="menu" aria-label="메뉴 열기"><span></span>메뉴</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-box">
+        <div class="slides" id="slides" aria-label="놀이 공간 사진">
+          <img class="slide on" src="img/ref-hero2.jpg" alt="알록달록한 폼 블록 사이에서 노는 아이의 뒷모습" width="1920" height="1080" fetchpriority="high">
+          <img class="slide" src="img/ref-card-balls.jpg" alt="알록달록한 공이 가득한 볼풀" width="1200" height="900" loading="lazy">
+          <img class="slide" src="img/ref-card-slide.jpg" alt="초록 미끄럼틀을 타는 아이의 뒷모습" width="1200" height="900" loading="lazy">
+          <img class="slide" src="img/ref-card-climb.jpg" alt="알록달록한 벽을 오르는 아이" width="1200" height="900" loading="lazy">
+        </div>
+        <span class="ref-tag">참고 이미지</span>
+        <div class="dots" id="dots" role="group" aria-label="사진 고르기"></div>
+        <button class="pause" id="pause" type="button" aria-label="사진 넘김 멈추기">❚❚</button>
+        <a class="group-btn" href="#booking" data-open="booking" id="heroCta">단체<br>예약</a>
+      </div>
+      <div class="band"><h1>놀면서 배우는 하루,<br class="m"> 영종도 단체 체험 놀이터</h1></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="pillars">
+      <a class="pillar" href="#spaces" data-open="spaces"><img src="img/ref-card-slide.jpg" alt="초록 미끄럼틀을 타는 아이의 뒷모습" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><div class="cap"><h2>재미</h2><p>마음껏 움직이며 놀아요</p></div></a>
+      <a class="pillar" href="#spaces" data-open="spaces"><img src="img/ref-card-blocks.jpg" alt="나무 바닥 위 색깔 블록을 집는 아이의 손" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><div class="cap"><h2>배움</h2><p>만지고 쌓으며 배워요</p></div></a>
+      <a class="pillar" href="#safe" data-open="safe"><img src="img/ref-hero.jpg" alt="모자를 쓰고 손을 잡고 걸어가는 아이들의 뒷모습" loading="lazy" width="1920" height="1080"><span class="ref-tag">참고 이미지</span><div class="cap"><h2>안전</h2><p>점검·소독 기록을 보여 드려요</p></div></a>
+    </div>
+  </div>
+
+  <section class="tiles-sec" aria-label="바로가기">
+    <div class="wrap tiles">
+      <a class="tile" href="#guide" data-open="guide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7" r="3"></circle><circle cx="16" cy="7" r="3"></circle><path d="M2 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2M14 14h3a5 5 0 0 1 5 5v2"></path></svg>단체 안내</a>
+      <a class="tile" href="#day" data-open="day"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>하루 일정</a>
+      <a class="tile" href="#safe" data-open="safe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>안전·위생</a>
+      <a class="tile" href="#visit" data-open="visit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>오시는 길</a>
+    </div>
+  </section>
+
+  <section class="news wrap" aria-label="알림">
+    <h2>알림</h2>
+    <ul>
+      <li><time class="blank">2026.○○.○○</time><span class="blank">○월 단체 이용 가능한 날짜 안내</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b class="blank">조병수 어린이집</b> · 어린이집 단체 체험 놀이터 · 인천 영종도</p>
+    <p class="blank">대표자 ○○○ · 사업자등록번호 ○○○-○○-○○○○○</p>
+    <p>마지막 업데이트 2026-11-08</p>
+    <p style="margin-top:12px">조병수 어린이집(가칭) 사장님께 드리는 제안용 예시입니다. 정식 홈페이지가 아닙니다.</p>
+    <button class="ph-toggle" type="button" id="phToggle" aria-pressed="false">사장님 확인용 보기</button>
+  </div>
+</footer>
+
+<!-- ===== 메뉴와 안쪽 화면 ===== -->
+<div class="sheet" id="menu" hidden="" role="dialog" aria-label="메뉴">
+  <div class="sheet-head"><h2>메뉴</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <ul class="menu-list">
+      <li><a href="#spaces" data-open="spaces">놀이 공간</a></li>
+      <li><a href="#guide" data-open="guide">단체 안내</a></li>
+      <li><a href="#day" data-open="day">하루 일정</a></li>
+      <li><a href="#safe" data-open="safe">안전·위생</a></li>
+      <li><a href="#faq" data-open="faq">자주 묻는 질문</a></li>
+      <li><a href="#booking" data-open="booking">단체 예약 문의</a></li>
+      <li><a href="#visit" data-open="visit">오시는 길</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="sheet" id="spaces" hidden="" role="dialog" aria-label="놀이 공간">
+  <div class="sheet-head"><h2>놀이 공간</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <p class="ph-note">공간 이름·설명·사진은 사장님께 받아 채웁니다. 지금 사진은 참고 이미지입니다.</p>
+    <div class="spaces">
+      <figure class="space"><img src="img/ref-card-balls.jpg" alt="알록달록한 공이 가득한 볼풀" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><p class="blank">공간 이름 1</p></figure>
+      <figure class="space"><img src="img/ref-card-slide.jpg" alt="초록 미끄럼틀을 타는 아이의 뒷모습" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><p class="blank">공간 이름 2</p></figure>
+      <figure class="space"><img src="img/ref-card-climb.jpg" alt="알록달록한 벽을 오르는 아이" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><p class="blank">공간 이름 3</p></figure>
+      <figure class="space"><img src="img/ref-card-blocks.jpg" alt="나무 바닥 위 색깔 블록을 집는 아이의 손" loading="lazy" width="1200" height="900"><span class="ref-tag">참고 이미지</span><p class="blank">공간 이름 4</p></figure>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="guide" hidden="" role="dialog" aria-label="단체 안내">
+  <div class="sheet-head"><h2>단체 안내</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <p class="ph-note">값은 모두 사장님께 받아 채웁니다.</p>
+    <dl class="table">
+      <div class="row"><dt>대상 연령</dt><dd class="blank">만 ○세 ~ 만 ○세</dd></div>
+      <div class="row"><dt>인원</dt><dd class="blank">최소 ○명 ~ 최대 ○명</dd></div>
+      <div class="row"><dt>이용 시간</dt><dd class="blank">회차당 ○분</dd></div>
+      <div class="row"><dt>비용</dt><dd class="blank">아동 1인 ○원 · 인솔 교사 ○원</dd></div>
+      <div class="row"><dt>인솔 기준</dt><dd class="blank">아동 ○명당 교사 ○명</dd></div>
+      <div class="row"><dt>예약</dt><dd class="blank">희망일 ○일 전까지</dd></div>
+      <div class="row"><dt>변경·취소</dt><dd class="blank">변경·취소 기준</dd></div>
+    </dl>
+    <h3>인솔 선생님용 안내 한 장</h3>
+    <p class="blank">준비물·도착 순서·연락처를 담은 인쇄용 안내 (사장님 확인 후)</p>
+    <p style="margin-top:20px"><a class="btn btn-main" href="#booking" data-open="booking">단체 예약 문의</a></p>
+  </div>
+</div>
+
+<div class="sheet" id="day" hidden="" role="dialog" aria-label="하루 일정">
+  <div class="sheet-head"><h2>하루 일정</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <p class="ph-note">실제 진행 순서와 시간은 사장님께 받아 채웁니다.</p>
+    <dl class="table">
+      <div class="row"><dt>도착</dt><dd class="blank">○시 ○분 · 버스 내리는 곳, 짐 두는 곳</dd></div>
+      <div class="row"><dt>놀이</dt><dd class="blank">○분 · 진행 내용</dd></div>
+      <div class="row"><dt>귀가</dt><dd class="blank">○시 ○분 · 마무리와 출발</dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="sheet" id="safe" hidden="" role="dialog" aria-label="안전·위생">
+  <div class="sheet-head"><h2>안전·위생</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <p>갖추고 계신 서류의 이름과 날짜를 그대로 적습니다.</p>
+    <dl class="table" style="margin-top:12px">
+      <div class="row"><dt>시설 안전점검</dt><dd class="blank">점검 이름 · 받은 날짜</dd></div>
+      <div class="row"><dt>보험</dt><dd class="blank">보험 종류 · 보상 기준은 약관에 따름</dd></div>
+      <div class="row"><dt>소독·위생</dt><dd class="blank">소독 주기 · 마지막 소독일</dd></div>
+      <div class="row"><dt>날씨</dt><dd class="blank">비·미세먼지 많은 날 운영 방식</dd></div>
+    </dl>
+  </div>
+</div>
+
+<div class="sheet" id="faq" hidden="" role="dialog" aria-label="자주 묻는 질문">
+  <div class="sheet-head"><h2>자주 묻는 질문</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <details><summary>전세 버스가 들어갈 수 있나요?</summary><p class="blank">버스 정차 위치와 주차 안내 (사장님 확인)</p></details>
+    <details><summary>점심이나 간식을 먹을 수 있나요?</summary><p class="blank">식사 가능 여부와 장소 (사장님 확인)</p></details>
+    <details><summary>비 오는 날이나 미세먼지 많은 날은요?</summary><p class="blank">날씨에 따른 운영 방식 (사장님 확인)</p></details>
+    <details><summary>원장님이 미리 둘러볼 수 있나요?</summary><p class="blank">사전 방문 가능 여부 (사장님 확인)</p></details>
+    <details><summary>인솔 교사는 몇 명이 함께 와야 하나요?</summary><p class="blank">아동 수에 따른 인솔 기준 (사장님 확인)</p></details>
+  </div>
+</div>
+
+<div class="sheet" id="booking" hidden="" role="dialog" aria-label="단체 예약 문의">
+  <div class="sheet-head"><h2>단체 예약 문의</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <p>원 이름·날짜·인원을 적으면 보낼 문자 내용이 만들어져요. 복사해서 보내시면 됩니다.</p>
+    <form class="form" id="bookForm" onsubmit="return false" style="margin-top:14px">
+      <label>원 이름<input id="org" name="org" placeholder="예: ○○어린이집" autocomplete="organization"></label>
+      <label>담당 선생님<input id="person" name="person" placeholder="이름" autocomplete="name"></label>
+      <label>희망 날짜<input id="date" name="date" type="date"></label>
+      <label>반·연령<input id="age" name="age" placeholder="예: 만 4세반"></label>
+      <label>아동 수 / 인솔 교사 수<input id="count" name="count" placeholder="예: 아동 18명 / 교사 3명"></label>
+      <label>오시는 방법<select id="car" name="car"><option value="">선택</option><option>원 차량</option><option>전세 버스</option><option>도보·대중교통</option><option>아직 모름</option></select></label>
+      <label>궁금한 점<textarea id="memo" name="memo" rows="3" placeholder="예: 점심 먹을 곳이 있는지"></textarea></label>
+      <div class="out" id="out" aria-live="polite">위 칸을 채우면 여기에 보낼 문자가 만들어집니다.</div>
+      <div class="actions">
+        <button type="button" class="btn btn-main" id="copyBtn">문자 내용 복사</button>
+        <span class="copied" id="copied"></span>
+      </div>
+      <p style="font-size:15px">전화 <a class="blank" href="tel:01000000000" style="display:inline-block;min-height:44px;line-height:44px">010-○○○○-○○○○</a></p>
+    </form>
+  </div>
+</div>
+
+<div class="sheet" id="visit" hidden="" role="dialog" aria-label="오시는 길">
+  <div class="sheet-head"><h2>오시는 길</h2><button class="close" type="button" data-close="" aria-label="닫기">×</button></div>
+  <div class="sheet-body">
+    <dl class="table">
+      <div class="row"><dt>주소</dt><dd class="blank">인천 영종도 ○○로 ○○</dd></div>
+      <div class="row"><dt>전화</dt><dd><a class="blank" href="tel:01000000000">010-○○○○-○○○○</a></dd></div>
+      <div class="row"><dt>운영 시간</dt><dd class="blank">○요일 ○○:○○ ~ ○○:○○</dd></div>
+      <div class="row"><dt>주차·버스</dt><dd class="blank">주차 대수, 버스 정차 위치</dd></div>
+    </dl>
+    <p style="margin-top:16px"><a class="btn btn-sub blank" href="https://map.naver.com/p/search/%EC%98%81%EC%A2%85%EB%8F%84" target="_blank" rel="noopener">네이버 지도 열기</a></p>
+  </div>
+</div>
+
+<div class="callbar" id="callbar">
+  <span>단체 예약 문의</span><a class="tel blank" href="tel:01000000000">010-○○○○-○○○○</a><a class="btn btn-main" href="#booking" data-open="booking">문의하기</a>
+</div>
+
+<script>
+(function(){
+  /* 안쪽 화면 열고 닫기 (주소 #이름으로도 열림) */
+  var sheets=[].slice.call(document.querySelectorAll('.sheet')), last=null;
+  function openSheet(id){
+    sheets.forEach(function(s){s.hidden=s.id!==id});
+    var s=document.getElementById(id); if(!s)return;
+    document.body.style.overflow='hidden'; s.scrollTop=0;
+    var c=s.querySelector('.close'); if(c)c.focus();
+  }
+  function closeAll(){sheets.forEach(function(s){s.hidden=true});document.body.style.overflow='';if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(last)last.focus()}
+  document.addEventListener('click',function(e){
+    var o=e.target.closest('[data-open]'); if(o){e.preventDefault();last=o;openSheet(o.getAttribute('data-open'));history.replaceState(null,'','#'+o.getAttribute('data-open'));return}
+    if(e.target.closest('[data-close]')){closeAll()}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+  function fromHash(){var h=location.hash.slice(1); if(h&&document.getElementById(h)&&document.getElementById(h).classList.contains('sheet'))openSheet(h)}
+  fromHash(); window.addEventListener('hashchange',fromHash);
+
+  /* 예약 문의 정리 */
+  var f=document.getElementById('bookForm'), out=document.getElementById('out');
+  function make(){
+    var g=function(k){return (f.elements[k].value||'').trim()}, L=['[단체 체험 예약 문의]'];
+    [['org','원 이름'],['person','담당'],['date','희망 날짜'],['age','반·연령'],['count','인원'],['car','오시는 방법'],['memo','궁금한 점']].forEach(function(p){if(g(p[0]))L.push(p[1]+': '+g(p[0]))});
+    out.textContent=L.length>1?L.join('\n'):'위 칸을 채우면 여기에 보낼 문자가 만들어집니다.'; return L.length>1?L.join('\n'):'';
+  }
+  f.addEventListener('input',make); f.addEventListener('change',make);
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var t=make(), c=document.getElementById('copied');
+    if(!t){c.textContent='먼저 칸을 채워 주세요.';return}
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){c.textContent='복사했어요.'}).catch(function(){c.textContent='위 글을 길게 눌러 복사해 주세요.'});
+  });
+
+  /* 사장님 확인용 보기 */
+  var tg=document.getElementById('phToggle');
+  tg.addEventListener('click',function(){var on=document.body.classList.toggle('ph');tg.setAttribute('aria-pressed',on);tg.textContent=on?'사장님 확인용 보기 끄기':'사장님 확인용 보기'});
+
+  /* 첫 화면 사진 넘김 */
+  var sl=[].slice.call(document.querySelectorAll('#slides .slide')), dots=document.getElementById('dots'), pb=document.getElementById('pause'), cur=0, timer=null, playing=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  sl.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+'번째 사진');b.addEventListener('click',function(){show(k);restart()});dots.appendChild(b)});
+  function show(k){sl[cur].classList.remove('on');cur=k;var el=sl[cur];el.classList.remove('on');void el.offsetWidth;el.classList.add('on');[].forEach.call(dots.children,function(d,i){d.setAttribute('aria-current',i===cur)})}
+  function restart(){clearInterval(timer);if(playing)timer=setInterval(function(){show((cur+1)%sl.length)},5500)}
+  pb.addEventListener('click',function(){playing=!playing;pb.textContent=playing?'❚❚':'▶';pb.setAttribute('aria-label',playing?'사진 넘김 멈추기':'사진 넘김 다시 시작');restart()});
+  if(!playing)pb.textContent='▶';
+  show(0);restart();
+
+  /* 하단 전화 바: 첫 화면 버튼이 안 보일 때만 */
+  var bar=document.getElementById('callbar'), cta=document.getElementById('heroCta');
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){bar.classList.toggle('on',!e[0].isIntersecting)}).observe(cta)}else{bar.classList.add('on')}
+})();
+</script>
+
+
+</body></html>
