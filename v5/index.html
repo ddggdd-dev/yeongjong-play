@@ -431,22 +431,33 @@ details p{padding:0 18px 15px;color:var(--sub)}
 
 <script>
 (function(){
-  /* 안쪽 화면 열고 닫기 (주소 #이름으로도 열림) */
+  /* 안쪽 화면 열고 닫기 — 열 때 방문 기록에 한 칸 남겨서 휴대폰 뒤로가기로 홈에 돌아옴 */
   var sheets=[].slice.call(document.querySelectorAll('.sheet')), last=null;
-  function openSheet(id){
+  function isSheet(id){var el=id&&document.getElementById(id);return !!(el&&el.classList.contains('sheet'))}
+  function anyOpen(){return sheets.some(function(s){return !s.hidden})}
+  function showSheet(id){
     sheets.forEach(function(s){s.hidden=s.id!==id});
-    var s=document.getElementById(id); if(!s)return;
-    document.body.style.overflow='hidden'; s.scrollTop=0;
-    var c=s.querySelector('.close'); if(c)c.focus();
+    var s=document.getElementById(id); document.body.style.overflow='hidden'; s.scrollTop=0;
+    var c=s.querySelector('.close'); if(c)c.focus({preventScroll:true});
   }
-  function closeAll(){sheets.forEach(function(s){s.hidden=true});document.body.style.overflow='';if(location.hash)history.replaceState(null,'',location.pathname+location.search);if(last)last.focus()}
+  function hideAll(){sheets.forEach(function(s){s.hidden=true});document.body.style.overflow='';if(last)last.focus({preventScroll:true})}
+  function openSheet(id){
+    if(!isSheet(id))return;
+    if(anyOpen()&&history.state&&history.state.sheet){history.replaceState({sheet:id},'','#'+id)}
+    else{history.pushState({sheet:id},'','#'+id)}
+    showSheet(id);
+  }
+  function closeSheet(){
+    if(history.state&&history.state.sheet){history.back()}
+    else{hideAll();history.replaceState(null,'',location.pathname+location.search)}
+  }
   document.addEventListener('click',function(e){
-    var o=e.target.closest('[data-open]'); if(o){e.preventDefault();last=o;openSheet(o.getAttribute('data-open'));history.replaceState(null,'','#'+o.getAttribute('data-open'));return}
-    if(e.target.closest('[data-close]')){closeAll()}
+    var o=e.target.closest('[data-open]'); if(o){e.preventDefault();if(!anyOpen())last=o;openSheet(o.getAttribute('data-open'));return}
+    if(e.target.closest('[data-close]')){closeSheet()}
   });
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
-  function fromHash(){var h=location.hash.slice(1); if(h&&document.getElementById(h)&&document.getElementById(h).classList.contains('sheet'))openSheet(h)}
-  fromHash(); window.addEventListener('hashchange',fromHash);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&anyOpen())closeSheet()});
+  window.addEventListener('popstate',function(){var h=location.hash.slice(1); if(isSheet(h))showSheet(h); else hideAll()});
+  (function(){var h=location.hash.slice(1); if(isSheet(h)){history.replaceState(null,'',location.pathname+location.search);history.pushState({sheet:h},'','#'+h);showSheet(h)}})();
 
   /* 예약 문의 정리 */
   var f=document.getElementById('bookForm'), out=document.getElementById('out');
