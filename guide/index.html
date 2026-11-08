@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="ko"><head><meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="check" content="no-tel">
+<title>체험 놀이터 홈페이지 제작 안내</title>
+<meta name="description" content="홈페이지 제작 안내: 한눈에 요약과 사장님께 부탁드릴 정보 입력.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="홈페이지 제작 안내">
+<meta property="og:description" content="한눈에 요약, 그리고 칸만 채워 보내시면 되는 정보 입력">
+<style>
+:root{--paper:#F5F4F1;--surface:#FFFFFF;--ink:#1A1D22;--muted:#4D545E;--line:#D8D5CE;--band:#20252D;--band-ink:#F4F5F7;--band-muted:#BCC2CB;--mark:#2F5D9E;--call:#B4471C;--glow:#FFAE7A;color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--paper:#121418;--surface:#1B1F25;--ink:#E8EAED;--muted:#A9B0BA;--line:#2E343D;--band:#1A1E24;--mark:#8FB2EA;--call:#C9551F;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;font-size:1.0625rem;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+img{max-width:100%;height:auto}
+.wrap{max-width:46rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--glow);outline-offset:2px}
+a{color:var(--mark)}
+.blank{display:inline-block;min-width:3.5em;background:rgba(240,140,40,.22);outline:1px dashed #E08A1E;outline-offset:-1px;padding:0 .4em;border-radius:2px}
+.top{background:var(--band);color:var(--band-ink)}
+.top .wrap{padding-block:32px}
+.top .meta{margin:0;color:var(--band-muted);font-size:.9375rem}
+h1{font-size:clamp(1.625rem,1.3rem + 1.6vw,2.25rem);line-height:1.25;margin:6px 0 16px;letter-spacing:-.015em}
+.sum{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sum li{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.16)}
+.sum b{color:var(--glow);font-size:.9375rem}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 18px;border-radius:6px;font-weight:700;text-decoration:none;font-family:inherit;font-size:1rem;cursor:pointer;border:2px solid transparent}
+.btn-p{background:var(--call);color:#fff}
+.btn-s{border-color:currentColor;color:var(--band-ink);background:transparent}
+main .wrap{padding-block:8px 64px}
+section{padding-top:40px}
+h2{font-size:1.375rem;line-height:1.35;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 20px}
+fieldset{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:16px;margin:0 0 16px;min-width:0}
+legend{font-weight:700;padding:0 6px;font-size:1.0625rem}
+.why{margin:0 0 4px;color:var(--muted);font-size:.9375rem;line-height:1.5}
+.f{display:flex;flex-direction:column;gap:6px;margin-top:12px;min-width:0}
+.f>label,.f>span{font-size:.9375rem;font-weight:600}
+.opt{font-weight:400;color:var(--muted)}
+input[type=text],input[type=date],textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:4px;min-height:48px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--ink);outline:none;box-shadow:0 0 0 3px rgba(180,71,28,.25)}
+::placeholder{color:var(--muted);opacity:.85}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;width:100%;height:100%;cursor:pointer}
+.seg span{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:.9375rem;background:var(--paper)}
+.seg input:checked+span{background:var(--ink);color:var(--surface);border-color:var(--ink);font-weight:600}
+.seg input:focus-visible+span{outline:3px solid var(--glow);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.chk{display:flex;align-items:center;gap:10px;min-height:44px;font-size:.9375rem}
+.chk input{width:22px;height:22px;accent-color:var(--call)}
+.out{background:var(--band);color:var(--band-ink);border-radius:8px;padding:16px;margin-top:8px}
+.out h2{color:var(--band-ink)}
+.msg{white-space:pre-wrap;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:12px;margin:12px 0;font:inherit;font-size:.9375rem;min-height:120px}
+.out p{margin:0;color:var(--band-muted);font-size:.9375rem}
+.copied{color:var(--glow)!important;min-height:1.5em;margin-top:8px!important}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:16px 36px 16px 0;font-weight:700;list-style:none;position:relative;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:12px;font-size:1.5rem;color:var(--muted)}
+details[open] summary::after{content:"−"}
+details .in{padding-bottom:16px}
+details p{margin:0 0 12px}
+.tbl{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:.9375rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--paper)}
+ol,ul{padding-left:1.3em;margin:0 0 12px}
+li{margin-bottom:6px}
+footer{color:var(--muted);font-size:.9375rem;padding-block:24px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="meta">2026년 11월 8일 · 홈페이지 제작팀(고성식)</p>
+    <h1><span data-biz="">체험 놀이터</span> 사장님, 한눈에 정리했습니다</h1>
+    <!-- 요약 5줄: 목표 / 약속 / 하실 일 / 일정 / 공개 후. 목표는 그 업종 손님 말로 바꾼다 -->
+    <ul class="sum">
+      <li><b>목표</b><span>어린이집 원장님·선생님이 첫 화면만 보고 믿고, 단체 체험을 바로 문의하게 만듭니다.</span></li>
+      <li><b>약속</b><span>확인된 사실만 씁니다. 과장하는 말은 쓰지 않습니다.</span></li>
+      <li><b>하실 일</b><span>아래 칸을 아시는 만큼 채워 보내 주시고, 시안을 보고 "좋다 / 고쳐 달라"만 말씀해 주세요.</span></li>
+      <li><b>일정</b><span>정보와 사진을 받은 날부터 일주일 안에 공개를 목표로 합니다.</span></li>
+      <li><b>공개 후</b><span>매주 사이트를 점검하고, 매달 문의 수와 검색 노출을 보고드립니다.</span></li>
+    </ul>
+    <div class="btns">
+      <a class="btn btn-p" href="#form">정보 입력하기</a>
+      <a class="btn btn-s" href="../v2/">시안 보기</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section id="form" aria-labelledby="form-h">
+      <h2 id="form-h">사장님께 부탁드릴 정보</h2>
+      <p class="lead">급한 것부터 순서대로입니다. 모르는 칸은 비워 두세요. 채우시면 아래에 문자가 만들어지고, 복사해서 카톡으로 보내 주시면 됩니다.</p>
+      <form id="f" novalidate="">
+        <!-- 업종 공통 질문 (templates/받을정보-체크리스트.md "업종 공통") -->
+        <fieldset>
+          <legend>1. 연락처와 영업 시간</legend>
+          <p class="why">손님이 가장 먼저 찾는 정보입니다. 홈페이지 모든 화면에서 이 번호로 연결됩니다.</p>
+          <div class="grid">
+            <div class="f"><label for="tel">홈페이지에 올릴 대표 번호</label><input type="text" id="tel" inputmode="tel" placeholder="010-0000-0000" data-k="대표 번호"></div>
+            <div class="f"><label for="hours">영업·상담 시간과 쉬는 날</label><input type="text" id="hours" placeholder="예: 평일 9~18시, 일요일 휴무" data-k="영업 시간"></div>
+          </div>
+          <div class="f"><label for="reply">전화를 못 받으실 때는 <span class="opt">(선택)</span></label><input type="text" id="reply" placeholder="예: 1시간 안에 다시 전화" data-k="회신 방식"></div>
+          <div class="f"><span id="sms-l">이 번호로 문자를 받으시나요?</span><div class="seg" role="radiogroup" aria-labelledby="sms-l">
+            <label><input type="radio" name="문자 수신" value="받음"><span>받아요</span></label>
+            <label><input type="radio" name="문자 수신" value="못 받음(유선)"><span>못 받아요</span></label></div></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. 사업자 정보</legend>
+          <p class="why">손님이 믿을 수 있는 곳인지 확인할 때 봅니다. 검색 등록에도 필요합니다.</p>
+          <div class="grid">
+            <div class="f"><label for="bizname">공식 상호와 대표자 이름</label><input type="text" id="bizname" data-k="상호·대표자"></div>
+            <div class="f"><label for="bizno">사업자등록번호</label><input type="text" id="bizno" inputmode="numeric" placeholder="000-00-00000" data-k="사업자등록번호"></div>
+          </div>
+          <div class="f"><label for="lic">업종 허가·등록·신고 번호 <span class="opt">(있으면)</span></label><input type="text" id="lic" data-k="허가·등록 번호"></div>
+          <div class="f"><label for="addr">사업장 주소</label><input type="text" id="addr" placeholder="예: ○○시 ○○로 00" data-k="사업장 주소"></div>
+          <div class="f"><span id="addrpub-l">주소를 홈페이지에 보여도 될까요?</span><div class="seg" role="radiogroup" aria-labelledby="addrpub-l">
+            <label><input type="radio" name="주소 공개" value="시·군까지만"><span>시·군까지만</span></label>
+            <label><input type="radio" name="주소 공개" value="전체 공개"><span>전체 공개</span></label>
+            <label><input type="radio" name="주소 공개" value="비공개"><span>비공개</span></label></div></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. 단체 이용 방법과 요금</legend>
+          <p class="why">원장님은 연령·인원·시간·비용을 계획서에 적어 결재를 받습니다. 대략적인 범위만 있어도 문의가 쉬워집니다.</p>
+          <div class="f"><label for="svc">단체로 받는 연령·인원(최소~최대)·한 번 이용 시간</label><textarea id="svc" placeholder="예: 만 3~5세, 10~40명, 90분" data-k="단체 연령·인원·시간"></textarea></div>
+          <div class="f"><label for="nosvc">놀이 공간 이름과 무엇을 하며 노는지 <span class="opt">(선택)</span></label><input type="text" id="nosvc" data-k="놀이 공간"></div>
+          <div class="f"><label for="flow">단체가 오면 진행 순서 <span class="opt">(선택)</span></label><input type="text" id="flow" placeholder="예: 도착 → 안전 안내 → 놀이 → 간식 → 귀가" data-k="진행 순서"></div>
+          <div class="f"><label for="area">지금 주로 오는 원의 지역</label><input type="text" id="area" placeholder="예: 영종도 안, 청라·송도에서도 옴" data-k="오는 원 지역"></div>
+          <div class="f"><label for="price">홈페이지에 적어도 되는 대략적인 요금 <span class="opt">(선택)</span></label><input type="text" id="price" placeholder="예: 아동 1인 ○원, 인솔 교사 무료" data-k="공개 가능 요금"></div>
+          <div class="f"><span id="pricepub-l">요금 범위를 홈페이지에 적어도 될까요?</span><div class="seg" role="radiogroup" aria-labelledby="pricepub-l">
+            <label><input type="radio" name="요금 공개" value="적어도 됨"><span>적어도 돼요</span></label>
+            <label><input type="radio" name="요금 공개" value="상담 후 안내"><span>상담 후 안내</span></label>
+            <label><input type="radio" name="요금 공개" value="더 이야기해 봄"><span>이야기해 봐요</span></label></div></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. 믿고 맡길 근거</legend>
+          <p class="why">원장님이 가장 걱정하시는 것은 안전입니다. 갖고 계신 서류의 이름과 날짜만 그대로 씁니다.</p>
+          <div class="grid">
+            <div class="f"><label for="years">문을 연 해</label><input type="text" id="years" placeholder="예: 2021년" data-k="운영 시작"></div>
+            <div class="f"><label for="ins">안전점검·보험·소독 <span class="opt">(있으면)</span></label><input type="text" id="ins" placeholder="예: 안전검사 ○○년 ○월, ○○보험 가입, 매일 소독" data-k="안전점검·보험·소독"></div>
+          </div>
+          <div class="f"><label for="slogan">평소 손님께 하시는 말, 가게 문구 <span class="opt">(그대로 쓰겠습니다)</span></label><input type="text" id="slogan" data-k="사장님 문구"></div>
+          <div class="f"><label for="ext">네이버 플레이스·블로그·카카오톡 채널 주소 <span class="opt">(있으면)</span></label><input type="text" id="ext" data-k="플레이스·블로그·카톡 채널"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. 실제 사진</legend>
+          <p class="why">지금 시안 사진은 참고 사진입니다. 실제 사진이 가장 큰 힘이 됩니다.</p>
+          <div class="seg" role="radiogroup" aria-label="사진 보내실 방법">
+            <label><input type="radio" name="사진" value="카톡으로 보내겠음"><span>카톡으로 보낼게요</span></label>
+            <label><input type="radio" name="사진" value="촬영하러 와 주세요"><span>찍으러 와 주세요</span></label>
+            <label><input type="radio" name="사진" value="아직 없음"><span>아직 없어요</span></label></div>
+          <div class="f"><label for="shoot">찍으러 오면 좋은 날 <span class="opt">(선택)</span></label><input type="date" id="shoot" data-k="촬영 희망일"></div>
+          <!-- 찍을 것은 업종 템플릿의 촬영 목록으로 바꾼다 -->
+          <p class="why" style="margin-top:12px">찍을 것: 놀이 공간 전체 모습 · 공간별 사진 4~5장 · 아이들이 노는 뒷모습(얼굴이 보이지 않게, 원의 동의를 받은 경우만) · 입구·간판 · 버스 내리는 곳. 지금 시안 첫 화면의 사진들이 "이런 느낌" 예시입니다.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>6. 지금 오는 원들 이야기 <span class="opt">(선택)</span></legend>
+          <p class="why">원 이름은 동의받은 경우에만 씁니다. 어떻게 알고 오는지 알면 홈페이지를 어디에 연결할지 정할 수 있습니다.</p>
+          <div class="f"><label for="case">지금 오는 원들은 보통 어떻게 알고 오나요?</label><textarea id="case" placeholder="예: 원장님 소개, 네이버 검색, 전단" data-k="알고 오는 경로"></textarea></div>
+        </fieldset>
+
+        <!-- 업종별 질문 자리: templates/업종/<업종>/README.md "사장님께 받을 것"에서 급한 2~4개를 골라 이 fieldset을 바꾼다.
+             예: 운송업 = 차급별 적재함 크기·대수, 리프트 하중, 적재물배상 보험 한도(1건당인지) / 식당 = 메뉴판 사진·가격 공개 동의, 예약 방법, 주차·단체 인원 -->
+        <fieldset>
+          <legend>7. 원장님들이 자주 묻는 것</legend>
+          <p class="why">문의 전에 원장님이 확인하는 것들입니다. 홈페이지 "자주 묻는 질문"에 그대로 씁니다.</p>
+          <div class="f"><label for="ind1">인솔 교사는 아동 몇 명당 몇 명이 와야 하나요?</label><input type="text" id="ind1" data-k="인솔 기준"></div>
+          <div class="f"><label for="ind2">전세 버스가 들어오나요? 주차는요?</label><input type="text" id="ind2" data-k="버스·주차"></div>
+          <div class="f"><label for="ind3">점심·간식을 먹을 곳이 있나요?</label><input type="text" id="ind3" data-k="식사"></div>
+          <div class="f"><label for="ind4">원장님이 미리 둘러볼 수 있나요? 취소·변경은요?</label><input type="text" id="ind4" data-k="사전 방문·취소"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>8. 그 밖에</legend>
+          <label class="chk"><input type="checkbox" value="로고 원본 파일을 카톡으로 보내겠음">로고 원본 파일을 카톡으로 보낼게요</label>
+          <div class="f"><label for="never">홈페이지에 쓰면 안 되는 것 <span class="opt">(선택)</span></label><input type="text" id="never" data-k="쓰면 안 되는 것"></div>
+          <div class="f"><label for="etc">고칠 곳이나 하고 싶은 말씀</label><textarea id="etc" data-k="하실 말씀"></textarea></div>
+        </fieldset>
+      </form>
+
+      <div class="out" aria-labelledby="out-h">
+        <h2 id="out-h">보내실 내용</h2>
+        <pre class="msg" id="msg" aria-live="polite"></pre>
+        <button type="button" class="btn btn-p" id="copy">복사하기</button>
+        <p class="copied" id="copied" role="status"></p>
+        <p>복사한 내용을 카톡으로 고성식에게 보내 주세요. 입력하신 내용은 이 페이지에 저장되지 않고 어디에도 보내지지 않습니다. 계좌번호처럼 민감한 정보는 적지 않으셔도 됩니다.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="more-h">
+      <h2 id="more-h">자세한 설명 (필요할 때만 펼쳐 보세요)</h2>
+      <details>
+        <summary>목표와 확인 방법</summary>
+        <div class="in">
+          <p>원장님은 "아이들이 안전한가, 우리 반 연령·인원에 맞나, 결재 올릴 정보(시간·비용·버스)가 있나"를 보고 고르십니다. 홈페이지 순서도 이 순서에 맞췄습니다.</p>
+          <div class="tbl"><table>
+            <tbody><tr><th>확인하는 것</th><th>방법 · 언제</th></tr>
+            <tr><td>홈페이지로 온 문의 수</td><td>사장님께 여쭤봄 · 오픈 후 한 달, 이후 매달</td></tr>
+            <tr><td>검색에 나오는지</td><td>상호, "지역 + 업종"으로 네이버·구글 확인 · 매달</td></tr>
+            <tr><td>링크를 쓰시는지</td><td>손님·거래처에 명함처럼 보내시는지 · 오픈 후 한 달</td></tr>
+          </tbody></table></div>
+          <p>검색 순위와 문의 수는 약속드릴 수 없습니다. 대신 매달 솔직하게 보고드리고 맞춰 고쳐 나가겠습니다.</p>
+        </div>
+      </details>
+      <details>
+        <summary>경쟁 업체를 살펴본 결과</summary>
+        <div class="in">
+          <p>2026년 11월 8일, 영종도와 청라·송도에서 어린이 단체 체험을 받는 곳 9곳과 전국에서 이름난 어린이 체험관 5곳을 살펴봤습니다. (다른 업체 이름은 쓰지 않습니다)</p>
+          <div class="tbl"><table>
+            <tbody><tr><th>다른 업체들</th><th>사장님 홈페이지</th></tr>
+            <tr><td>근처 민간 시설은 단체 금액을 적지 않고 "전화 문의"만 둡니다</td><td>연령·인원·시간·비용을 한 표로 보여 드립니다(알려 주신 범위만)</td></tr>
+            <tr><td>안전점검·보험을 보여 주는 곳을 찾지 못했습니다</td><td>갖고 계신 서류의 이름과 날짜를 그대로 적습니다</td></tr>
+            <tr><td>안내가 부모 손님 위주입니다</td><td>원장님이 원 이름·날짜·인원을 적으면 보낼 문자가 만들어지는 "단체 예약 문의 정리"를 넣었습니다</td></tr>
+          </tbody></table></div>
+        </div>
+      </details>
+      <details>
+        <summary>만드는 기준 (약속)</summary>
+        <div class="in"><ol>
+          <li>지어낸 내용은 넣지 않습니다. 사장님께 확인받은 것만 씁니다.</li>
+          <li>사진 출처를 밝힙니다. 참고 사진에는 "참고 이미지"라고 적고, 최종본은 실제 사진으로 바꿉니다.</li>
+          <li>어느 화면에서든 전화로 이어집니다.</li>
+          <li>휴대폰에서 첫 화면이 빨리 뜨게 합니다(목표 2.5초 안).</li>
+          <li>글자 크기·대비·버튼 크기를 웹 접근성 기준에 맞춥니다.</li>
+          <li>검색과 카카오톡 공유에 대비합니다. 검색에 나오는지는 매달 확인해 보고드립니다.</li>
+        </ol></div>
+      </details>
+      <details>
+        <summary>진행 순서와 역할</summary>
+        <div class="in">
+          <div class="tbl"><table>
+            <tbody><tr><th>사장님</th><th>제작팀</th></tr>
+            <tr><td>위 칸 채워 보내기, 시안 보고 "좋다 / 고쳐 달라", 공개 승인</td><td>시안·수정·사진 정리·검수·공개·점검</td></tr>
+          </tbody></table></div>
+          <ol>
+            <li>시안 확인: 휴대폰으로 보시고 고칠 곳을 알려 주세요. 캡처에 동그라미를 쳐서 보내셔도 됩니다.</li>
+            <li>정보·사진 받기: 위 칸을 채워 보내 주시면 시안의 주황색 점선 칸을 채웁니다.</li>
+            <li>수정: 말씀하신 곳은 되도록 같은 날 고칩니다.</li>
+            <li>공개: 승인하시면 누구나 볼 수 있게 올립니다. 못 받은 항목은 빼고 올립니다.</li>
+          </ol>
+        </div>
+      </details>
+      <details>
+        <summary>공개 후 관리</summary>
+        <div class="in"><ul>
+          <li>매주 사이트 상태와 빠진 정보를 점검합니다.</li>
+          <li>매달 문의 수와 검색 노출을 짧게 보고드립니다.</li>
+          <li>바뀐 정보는 알려 주신 날 고칩니다.</li>
+          <li>함께 챙길 것: 사장님 명의 도메인, 검색 등록, 네이버 플레이스·카카오톡 채널(사장님 계정).</li>
+        </ul></div>
+      </details>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">홈페이지 제작팀(고성식) · 2026-11-08</div></footer>
+<script>
+(function(){
+  var f=document.getElementById('f'), msg=document.getElementById('msg');
+  var bizEl=document.querySelector('[data-biz]');
+  var head='['+((bizEl&&bizEl.textContent.trim())||'업체')+' 홈페이지 정보]';
+  function build(){
+    var lines=[head], seen={};
+    [].forEach.call(f.querySelectorAll('input,textarea'),function(el){
+      if(el.type==='radio'){ if(el.checked&&!seen[el.name]){seen[el.name]=1;lines.push(el.name+': '+el.value);} return; }
+      if(el.type==='checkbox'){ if(el.checked) lines.push(el.value); return; }
+      var v=(el.value||'').trim(); if(v) lines.push((el.dataset.k||el.id)+': '+v);
+    });
+    msg.textContent=lines.length>1?lines.join('\n'):head+'\n(위 칸을 채우면 여기에 정리됩니다)';
+  }
+  f.addEventListener('input',build); f.addEventListener('change',build); f.addEventListener('submit',function(e){e.preventDefault()}); build();
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=msg.textContent, out=document.getElementById('copied');
+    var sel=function(){try{var r=document.createRange();r.selectNodeContents(msg);var s=getSelection();s.removeAllRanges();s.addRange(r);}catch(e){}};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){out.textContent='복사했습니다. 카톡에 붙여 넣어 보내 주세요.'},function(){sel();out.textContent='위 내용을 길게 눌러 복사해 주세요.'});}
+    else{sel();out.textContent='위 내용을 길게 눌러 복사해 주세요.';}
+  });
+})();
+</script>
+
+
+</body></html>
